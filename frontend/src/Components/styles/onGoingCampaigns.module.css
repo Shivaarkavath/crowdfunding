@@ -1,0 +1,218 @@
+.container {
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 73.5%,
+    rgba(245, 245, 245) 26.5%
+  );
+}
+
+.campaigns {
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  scroll-behavior: smooth;
+  padding: 2% 0 0 7.2%;
+  scrollbar-width: none;
+}
+
+.eachCampaign div {
+  flex-direction: row;
+}
+
+.title {
+  padding: 9% 0 0 9.5%;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 45px;
+  font-weight: bolder;
+}
+
+@media only screen and (max-width: 575px) {
+  .title {
+    padding: 9% 0 0 0;
+    text-align: center;
+  }
+}
+
+.directions {
+  font-weight: bold;
+  padding: 9% 2% 0 20%;
+}
+
+.button {
+  background-color: rgba(21, 215, 180, 1);
+  border-radius: 100%;
+  border: none;
+  font-weight: bold;
+  margin-right: 20% !important;
+}
+.button:hover {
+  background-color: rgb(11, 146, 121);
+}
+
+@media only screen and (min-width: 575px) and (max-width: 660px) {
+  .directions {
+    padding: 9% 0 0 19%;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .directions {
+    text-align: center;
+    padding-top: 3%;
+  }
+}
+
+.showAll {
+  background-color: rgba(21, 215, 180, 1);
+  border-radius: 60px 60px 60px 60px;
+  font-weight: bold;
+  border: none;
+}
+
+.showAll:hover {
+  background-color: rgb(11, 146, 121);
+}
+/* Container styling */
+.container {
+  width: 100%;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Section title */
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Scroll buttons */
+.directions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.button {
+  border: none;
+  background-color: #28a745;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #218838;
+}
+
+/* Campaign list container */
+.campaigns {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+  scrollbar-width: none; /* Firefox */
+}
+
+.campaigns::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+/* Campaign card size */
+.eachCampaign {
+  flex-grow: 1 1 auto;
+  width: 800px; /* 🔥 Increased width */
+  height: 330px; /* 🔥 Increased height */
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Campaign image */
+.eachCampaign img {
+  width: 100%;
+  height: 300px; /* 🔥 Adjusted image height */
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+/* Full-size campaign details box */
+.eachCampaignContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Slightly darker overlay */
+  color: #fff;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 16px;
+}
+
+/* Show details on hover */
+.eachCampaign:hover .eachCampaignContent {
+  opacity: 1;
+}
+
+/* Text styles */
+.eachCampaignContent h3 {
+  font-size: 25px; /* 🔥 Increased font size */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.eachCampaignContent p {
+  font-size: 25px; /* 🔥 Increased font size */
+  margin-bottom: 1.5rem;
+  color: #ddd;
+}
+
+/* Required amount styling */
+.requiredAmount {
+  font-size: 100px; /* 🔥 Increased font size */
+  font-weight: bold;
+  color: #28a745;
+  margin-bottom: 1rem;
+}
+
+.donateButton {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.donateButton:hover {
+  background-color: #218838;
+}
+
+.donateButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
