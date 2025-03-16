@@ -1,14 +1,26 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styles from "./styles/onGoingCampaigns.module.css";
 import Campaign from "./everyOngoingCampaigns";
+import { isAuthorised } from "../services/auth";
+import { toast } from "react-toastify";
 
 const OnGoingCampaigns = ({ loading, data, handleClick }) => {
   const scrollRef = useRef();
+  const history = useHistory();
 
   const handleScroll = (direction) => {
     if (scrollRef.current) {
       scrollRef.current.scrollLeft += direction === "left" ? -325 : 325;
+    }
+  };
+
+  const handleDonateClick = (campaignId) => {
+    if (isAuthorised()) {
+      history.push(`/donate/${campaignId}`);
+    } else {
+      toast.info("Please login to donate");
+      history.push("/login", { from: { pathname: `/donate/${campaignId}` } });
     }
   };
 
@@ -98,14 +110,13 @@ const OnGoingCampaigns = ({ loading, data, handleClick }) => {
               isActivated={campaign.isActivated}
             />
             {/* Donate Now Button */}
-            <Link to="/Registration-Form">
-              <button
-                className={`btn btn-primary mt-2 ${styles.donateButton}`}
-                disabled={!campaign.isActivated}
-              >
-                Donate Now <i className="fa fa-arrow-right" aria-hidden="true"></i>
-              </button>
-            </Link>
+            <button
+              className={`btn btn-primary mt-2 ${styles.donateButton}`}
+              disabled={!campaign.isActivated}
+              onClick={() => handleDonateClick(campaign._id)}
+            >
+              Donate Now <i className="fa fa-arrow-right" aria-hidden="true"></i>
+            </button>
           </div>
         ))}
       </div>

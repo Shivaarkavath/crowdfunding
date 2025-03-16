@@ -1,0 +1,27 @@
+{
+  "name": "crowdfunding",
+  "version": "1.0.0",
+  "description": "This is the combined project for both the frontend and backend of the CrowdFunding platform.",
+  "homepage": "https://github.com/Shivaarkavath/crowdfunding#readme",
+  "bugs": {
+    "url": "https://github.com/Shivaarkavath/crowdfunding/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shivaarkavath/crowdfunding.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+    "start:frontend": "cd frontend && npm start",
+    "start:backend": "cd backend && npm start",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

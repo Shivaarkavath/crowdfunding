@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { isAuthorised } from "../services/auth";
 import styles from "./styles/navbar.module.css";
 
 const Navbar = (props) => {
@@ -53,12 +54,17 @@ const Navbar = (props) => {
               <Link to="/contact-us">CONTACT US</Link>
             </li>
             <li style={{ float: "right" }}>
-              <Link to="/Registration-Form">REGISTER</Link>
+              <Link to="/register">REGISTER</Link>
             </li>
+            {isAuthorised() ? (
               <li style={{ float: "right" }}>
                 <Link to="/admin/dashboard">ADMIN</Link>
               </li>
-            
+            ) : (
+              <li style={{ float: "right" }}>
+                <Link to="/admin/login">ADMIN LOGIN</Link>
+              </li>
+            )}
           </ul>
         </div>
       </nav>

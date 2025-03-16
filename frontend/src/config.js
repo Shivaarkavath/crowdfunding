@@ -49,6 +49,14 @@ export const querydeleteUrl = (id) => {
   return backendURL + "api/query/" + id + "/delete";
 };
 
+export const registerUserUrl = () => {
+  return backendURL + "api/user/register";
+};
+
+export const storeDonationUrl = () => {
+  return backendURL + "api/donation/store";
+};
+
 const toExport = {
   getAllCampaignsUrl,
   getCampaignDataByIdUrl,
@@ -62,6 +70,8 @@ const toExport = {
   getAllQueriesUrl,
   getCreateQueryUrl,
   querydeleteUrl,
+  registerUserUrl,
+  storeDonationUrl,
 };
 
 export default toExport;

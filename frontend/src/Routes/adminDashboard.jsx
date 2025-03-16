@@ -21,44 +21,59 @@ const AdminDashboard = (p) => {
       <NavBar />
       <ScrollToTop />
       <div className={`col-md-10 m-auto border ${styles.container}`}>
+        <div className={styles.topBar}>
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              p.history.push("/");
+            }}
+          >
+            🏠 Home
+          </button>
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              logout().then(() => {
+                window.location = "/";
+              });
+            }}
+          >
+            Logout
+          </button>
+        </div>
+
         <img src={user} className={`${styles.image}`} alt="userIcon" />
         <h2 className={`${styles.text}`}>Admin Dashboard</h2>
         <b>{email}</b>
         <hr />
-        <button
-          className="btn btn-warning m-2"
-          onClick={() => {
-            p.history.push("/admin/new");
-          }}
-        >
-          New Admin +
-        </button>
-        <button
-          className="btn btn-warning"
-          onClick={() => {
-            p.history.push("/admin/campaign/new");
-          }}
-        >
-          New Campaign
-        </button>
-        <button
-          className="btn btn-primary m-2"
-          onClick={() => {
-            p.history.push("/all-campaigns");
-          }}
-        >
-          All Campaigns
-        </button>
-        <button
-          className="btn btn-danger"
-          onClick={() => {
-            logout().then(() => {
-              window.location = "/";
-            });
-          }}
-        >
-          Logout
-        </button>
+        
+        <div className={styles.buttonGroup}>
+          <button
+            className="btn btn-warning m-2"
+            onClick={() => {
+              p.history.push("/admin/new");
+            }}
+          >
+            New Admin +
+          </button>
+          <button
+            className="btn btn-warning m-2"
+            onClick={() => {
+              p.history.push("/admin/campaign/new");
+            }}
+          >
+            New Campaign
+          </button>
+          <button
+            className="btn btn-primary m-2"
+            onClick={() => {
+              p.history.push("/all-campaigns");
+            }}
+          >
+            All Campaigns
+          </button>
+        </div>
+        
         <hr />
         <ShowQuery />
         <br />
